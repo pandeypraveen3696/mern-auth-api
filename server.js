@@ -30,6 +30,13 @@ if ((process.env.NODE_ENV = "development")) {
   app.use(cors({ origin: `https://auth-app-praveen.herokuapp.com/` }));
 }
 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // middleware
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
