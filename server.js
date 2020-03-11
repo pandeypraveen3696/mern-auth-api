@@ -24,7 +24,7 @@ const userRoutes = require("./routes/user");
 
 // app middlewares
 app.use(morgan("dev"));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "50mb" }));
 // app.use(cors()); //allows all origins
 if ((process.env.NODE_ENV = "development")) {
   app.use(cors({ origin: `https://auth-app-praveen.herokuapp.com/` }));
